@@ -12,18 +12,18 @@
  * the License.
  */
 
-const sdk = require('kinvey-flex-sdk');
-const handlers = require ('./lib/handlers');
+const sdk = require("kinvey-flex-sdk");
+const handlers = require("./lib/handlers");
 
 // Initiate the Flex SDK Service
 sdk.service((err, flex) => {
   if (err) {
-    console.log('Error initializing the Flex SDK, exiting.');
+    console.log("Error initializing the Flex SDK, exiting.");
     throw err;
   }
 
-  const data = flex.data;   // gets the datalink object from the service
-  const partner = data.serviceObject('HCPCS');        // Creates the HCPCS Service Object
+  const data = flex.data; // gets the datalink object from the service
+  const partner = data.serviceObject("items"); // Creates the HCPCS Service Object
 
   // wire up the events that we want to process
   partner.onGetById(handlers.getOneHCPCSCode);
